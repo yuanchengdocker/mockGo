@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <div class="root"></div>
+    <script>
+        (function(){
+            $.ajax({
+                type: 'post',
+                url: '/api/sales/query',
+                success: function(data){
+                    $("#root").text(JSON.stringify(data.data))
+                },
+                error: function(err){
+                    $("#root").text(err)
+                }
+            })
+        })()    
+    </script>
+</body>
+</html>
